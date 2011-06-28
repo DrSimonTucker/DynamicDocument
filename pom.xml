@@ -9,8 +9,8 @@
   <url>http://maven.apache.org</url>
 
   <scm>
-    <connection>scm:git:ssh://stoughton/Users/sat/workspace/gits/audioview</connection>
-    <url>scm:git:ssh://stoughton/Users/sat/workspace/gits/audioview</url>
+    <connection>scm:git:git://github.com/DrSimonTucker/DynamicDocument</connection>
+    <url>scm:git:git://github.com/DrSimonTucker/DynamicDocument</url>
   </scm>
   
   <distributionManagement>
