@@ -1,50 +1,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>uk.ac.shef.dcs.oak.budget</groupId>
-  <artifactId>budget</artifactId>
+  <groupId>uk.ac.shef.dcs.oak.doc</groupId>
+  <artifactId>dyndoc</artifactId>
   <packaging>jar</packaging>
-  <version>0.1</version>
-  <name>mdbcore</name>
+  <version>0.1-SNAPSHOT</version>
+  <name>dyndoc</name>
   <url>http://maven.apache.org</url>
+
+  <scm>
+    <connection>scm:git:ssh://stoughton/Users/sat/workspace/gits/audioview</connection>
+    <url>scm:git:ssh://stoughton/Users/sat/workspace/gits/audioview</url>
+  </scm>
+  
+  <distributionManagement>
+    <repository>
+      <id>mcbee</id>
+      <name>mcbee-releases</name>
+      <url>http://mcbee:8080/artifactory/libs-releases-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>mcbee</id>
+      <name>mcbee-snapshots</name>
+      <url>http://mcbee:8080/artifactory/libs-snapshots-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
     <pluginManagement>
       <plugins>
   	<plugin>
 	  <groupId>org.apache.maven.plugins</groupId>
 	  <artifactId>maven-compiler-plugin</artifactId>
-	  <version>2.0.2</version>
+	  <version>2.3.2</version>
 	  <configuration>
             <source>1.6</source>
             <target>1.6</target>
 	  </configuration>
 	</plugin>
-	
-	<plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-	    <configuration>
-          <mainClass>uk.ac.shef.dcs.oak.budget.BudgetController</mainClass>
-        </configuration>
-      </plugin>
-	
       </plugins>
     </pluginManagement>
   </build>
+
 </project>
