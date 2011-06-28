@@ -8,8 +8,8 @@
   <url>http://maven.apache.org</url>
 
   <scm>
-    <connection>scm:git:git://github.com/DrSimonTucker/DynamicDocument</connection>
-    <url>scm:git:git://github.com/DrSimonTucker/DynamicDocument</url>
+    <connection>scm:git:git@github.com:DrSimonTucker/DynamicDocument.git</connection>
+    <url>scm:git:git@github.com:DrSimonTucker/DynamicDocument.git</url>
   </scm>
   
   <distributionManagement>
