@@ -1,0 +1,12 @@
+.classpath
+.project
+.fbprefs
+.settings
+target
+*~
+.checkstyle
+*.wav
+etc
+*diffs
+nohup.out
+.DS_Store
