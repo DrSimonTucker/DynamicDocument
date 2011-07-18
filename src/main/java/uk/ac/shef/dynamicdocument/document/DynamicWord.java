@@ -26,6 +26,6 @@ public class DynamicWord extends Word
 	
 	public void setFontSize(int size)
 	{
-		setFontSize(size);
+		super.setFontSize(size);
 	}
 }
