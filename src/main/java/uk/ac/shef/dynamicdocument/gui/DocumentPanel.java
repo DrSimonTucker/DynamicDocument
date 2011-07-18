@@ -222,11 +222,12 @@ public class DocumentPanel extends JTextPane
 				MutableAttributeSet set = mod.modifyWord(word, plainText, gamma, wordMap[i]);
 
 				StyleConstants.setBold(set, word.isBold());
-
+				StyleConstants.setFontSize(set, word.getFontSize());
 				if (i != allwords.size() - 1 && allwords.get(i + 1).getConnect() != Word.TO_PREVIOUS
 						&& word.getConnect() != Word.TO_FOLLOWING)
 				{
 					wordMap[i][0] = caratLocation;
+					
 					paneDoc.insertString(caratLocation, textRep + " ", set);
 					caratLocation += textRep.length() + 1;
 					wordMap[i][1] = caratLocation;

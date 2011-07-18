@@ -28,6 +28,18 @@ public class Word implements WordContainer
 	// The contextual importance of the unit
 	double beta;
 	boolean bold;
+	
+	int fontSize = 10;
+	
+	public void setFontSize(int size)
+	{
+		this.fontSize = size;
+	}
+	
+	public int getFontSize()
+	{
+		return this.fontSize;
+	}
 
 	double endTime = -1;
 

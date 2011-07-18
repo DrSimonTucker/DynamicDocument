@@ -23,4 +23,9 @@ public class DynamicWord extends Word
 		setManipulationLevel(Word.ALWAYS_APPLY);
 		setBold(bold);
 	}
+	
+	public void setFontSize(int size)
+	{
+		setFontSize(size);
+	}
 }
