@@ -110,6 +110,18 @@ public class DocumentPanel extends JTextPane
 
 		return indicies;
 	}
+	
+	public List<Integer> getWordIndicies(int index)
+	{
+		List<Integer> indicies = new Vector<Integer>();
+
+		List<Word> wrds = doc.collapseToWords();
+		for (int i = 0; i < wrds.size(); i++)
+			if (wrds.get(i).getIndex() == index)
+				indicies.add(i);
+
+		return indicies;
+	}
 
 	public int[][] getWordMap()
 	{
@@ -129,6 +141,12 @@ public class DocumentPanel extends JTextPane
 		highlightWords(getWordIndicies(timeInSeconds));
 	}
 
+	public void highlightIndex(int index)
+	{
+		unHighlightWords();
+		highlightWords(getWordIndicies(index));
+	}
+	
 	public void scrollToTime(double timeInSeconds)
 	{
 		int bestMatch = getClosestWordIndex(timeInSeconds);
@@ -196,6 +214,19 @@ public class DocumentPanel extends JTextPane
 	private void highlightWords(List<Integer> indices)
 	{
 		for (Integer integer : indices)
+		{
+			highlightAttributeMap.put(integer, paneDoc.getCharacterElement(wordMap[integer][0] + 1).getAttributes());
+			SimpleAttributeSet sas = new SimpleAttributeSet();
+			StyleConstants.setBackground(sas, HIGHLIGHT_COLOR);
+
+			int[] startAndEnd = wordMap[integer];
+			paneDoc.setCharacterAttributes(startAndEnd[0], startAndEnd[1] - startAndEnd[0], sas, false);
+		}
+	}
+	
+	public void highlight(List<Integer> indices)
+	{
+		for(Integer integer: indices)
 		{
 			highlightAttributeMap.put(integer, paneDoc.getCharacterElement(wordMap[integer][0] + 1).getAttributes());
 			SimpleAttributeSet sas = new SimpleAttributeSet();
