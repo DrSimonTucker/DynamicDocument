@@ -223,6 +223,10 @@ public class DocumentPanel extends JTextPane
 
 				StyleConstants.setBold(set, word.isBold());
 				StyleConstants.setFontSize(set, word.getFontSize());
+				if (word.getBackColor() != null)
+					StyleConstants.setBackground(set, word.getBackColor());
+				
+				
 				if (i != allwords.size() - 1 && allwords.get(i + 1).getConnect() != Word.TO_PREVIOUS
 						&& word.getConnect() != Word.TO_FOLLOWING)
 				{

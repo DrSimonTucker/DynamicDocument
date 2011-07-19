@@ -1,5 +1,6 @@
 package uk.ac.shef.dynamicdocument;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Vector;
 
@@ -34,6 +35,18 @@ public class Word implements WordContainer
 	public void setFontSize(int size)
 	{
 		this.fontSize = size;
+	}
+	
+	Color backColor;
+	
+	public void setBackgroundColor(Color c)
+	{
+		backColor = c;
+	}
+	
+	public Color getBackColor()
+	{
+		return backColor;
 	}
 	
 	public int getFontSize()
