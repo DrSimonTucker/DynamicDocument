@@ -29,7 +29,17 @@ public class Word implements WordContainer
 	// The contextual importance of the unit
 	double beta;
 	boolean bold;
+	int index;
 	
+	public int getIndex()
+	{
+		return index;
+	}
+	
+	public void setIndex(int ind)
+	{
+		index = ind;
+	}
 	int fontSize = 10;
 	
 	public void setFontSize(int size)
