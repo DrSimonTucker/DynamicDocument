@@ -3,6 +3,7 @@ package uk.ac.shef.dynamicdocument.gui;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -33,7 +34,7 @@ public class DocumentPanel extends JTextPane
 	long expireTime = -1;
 	double gamma = 0.1;
 
-	Color HIGHLIGHT_COLOR = Color.black;
+	Color HIGHLIGHT_COLOR = Color.yellow;
 	Map<Integer, AttributeSet> highlightAttributeMap = new TreeMap<Integer, AttributeSet>();
 	// We hold the center line for 1 second at the moment
 	long HOLD_TIME = 1000;
@@ -111,15 +112,24 @@ public class DocumentPanel extends JTextPane
 		return indicies;
 	}
 	
-	public List<Integer> getWordIndicies(int index)
+	public List<Integer> getWordIndicies(Collection<Integer> index)
 	{
+		System.out.println("Getting indicies:" + index);
 		List<Integer> indicies = new Vector<Integer>();
 
 		List<Word> wrds = doc.collapseToWords();
 		for (int i = 0; i < wrds.size(); i++)
-			if (wrds.get(i).getIndex() == index)
+			if (index.contains(wrds.get(i).getIndex()))
+			{
+				System.out.println("NowAdding " + wrds.get(i).getText());
 				indicies.add(i);
+			}
+			else
+			{
+				System.out.println("Skipping " + wrds.get(i).getText() + " => " + wrds.get(i).getIndex());
+			}
 
+		System.out.println("Selected: " + indicies);
 		return indicies;
 	}
 
@@ -141,7 +151,7 @@ public class DocumentPanel extends JTextPane
 		highlightWords(getWordIndicies(timeInSeconds));
 	}
 
-	public void highlightIndex(int index)
+	public void highlightIndex(Collection<Integer> index)
 	{
 		unHighlightWords();
 		highlightWords(getWordIndicies(index));
@@ -224,8 +234,9 @@ public class DocumentPanel extends JTextPane
 		}
 	}
 	
-	public void highlight(List<Integer> indices)
+	public void highlight(Collection<Integer> indices)
 	{
+		System.out.println("Highlighting in Panel: " + indices);
 		for(Integer integer: indices)
 		{
 			highlightAttributeMap.put(integer, paneDoc.getCharacterElement(wordMap[integer][0] + 1).getAttributes());
