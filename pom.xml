@@ -3,7 +3,7 @@
   <groupId>uk.ac.shef.dcs.oak.doc</groupId>
   <artifactId>dyndoc</artifactId>
   <packaging>jar</packaging>
-  <version>0.2</version>
+  <version>0.3-SNAPSHOT</version>
   <name>dyndoc</name>
   <url>http://maven.apache.org</url>
 
