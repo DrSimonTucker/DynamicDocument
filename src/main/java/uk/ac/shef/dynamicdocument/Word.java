@@ -1,5 +1,6 @@
 package uk.ac.shef.dynamicdocument;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Vector;
 
@@ -28,6 +29,40 @@ public class Word implements WordContainer
 	// The contextual importance of the unit
 	double beta;
 	boolean bold;
+	int index;
+	
+	public int getIndex()
+	{
+		return index;
+	}
+	
+	public void setIndex(int ind)
+	{
+		index = ind;
+	}
+	int fontSize = 10;
+	
+	public void setFontSize(int size)
+	{
+		this.fontSize = size;
+	}
+	
+	Color backColor;
+	
+	public void setBackgroundColor(Color c)
+	{
+		backColor = c;
+	}
+	
+	public Color getBackColor()
+	{
+		return backColor;
+	}
+	
+	public int getFontSize()
+	{
+		return this.fontSize;
+	}
 
 	double endTime = -1;
 
